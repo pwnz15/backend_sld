@@ -12,6 +12,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^22.8.7",
     "@types/pdfkit": "^0.13.5",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
@@ -30,7 +37,6 @@
     "helmet": "^8.0.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.0",
     "multer": "^1.4.5-lts.1",
     "pdfkit": "^0.15.1",
     "redis": "^4.7.0",
@@ -43,12 +49,16 @@
     "@types/csv-stringify": "^1.4.3",
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/mongoose": "^5.11.96",
+    "@types/mongodb": "4.0.6",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.8.7",
     "@types/swagger-ui-express": "^4.1.7",
+    "mongoose": "8.8.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -8,8 +8,20 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"] // Add this line
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": [
+      "node",
+      "express",
+      "body-parser",
+      "cors",
+      "bcryptjs",
+      "jsonwebtoken",
+      "multer"
+    ],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

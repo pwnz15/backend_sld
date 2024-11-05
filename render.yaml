@@ -13,4 +13,3 @@ services:
         sync: false
     plan: free
     autoDeploy: true
-    
