@@ -8,16 +8,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    "types": [
-      "node",
-      "express",
-      "body-parser",
-      "cors",
-      "bcryptjs",
-      "jsonwebtoken",
-      "multer"
-    ],
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
