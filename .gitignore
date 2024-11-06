@@ -29,7 +29,11 @@ uploads/
 # Debug files
 npm-debug.log*
 yarn-debug.log*
+<<<<<<< HEAD
 yarn-error.log*
 
 .env
 Liste_article_SLD.csv
+=======
+yarn-error.log*
+>>>>>>> 9a8f109c8bdb237a3b13b305ec1faa8024e34624
