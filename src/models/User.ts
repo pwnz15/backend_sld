@@ -47,12 +47,13 @@ export const ROLE_PERMISSIONS = {
         'manage:inventory',
         'manage:sales',
         'manage:clients',
+        'manage: users',
         'manage:drivers',
         'view:reports',
         'view:inventory',
         'view:clients',
         'view:drivers',
-        'view:invoices'
+        'view:invoices',
     ],
     manager_foire: [
         'manage:inventory',

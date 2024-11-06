@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 import { createArticle, getArticles, getArticleById, updateArticle, deleteArticle } from '../services/articleService';
 import { ArticleDto } from '../dtos/articleDto';
-import { verifyDatabase } from '../config/db'; // Add this import
+import { verifyDatabase } from '../config/db';
+import connectDB from '../config/db';
+// Add this import
 
 // Create a new article
 export const createArticleHandler = async (req: Request, res: Response): Promise<void> => {
@@ -16,12 +18,8 @@ export const createArticleHandler = async (req: Request, res: Response): Promise
         const articleDto: ArticleDto = req.body;
         const article = await createArticle(articleDto);
         res.status(201).json(article);
-    } catch (err) {
-        if (err instanceof Error) {
-            res.status(400).json({ error: err.message });
-        } else {
-            res.status(400).json({ error: 'An unknown error occurred' });
-        }
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to create article' });
     }
 };
 

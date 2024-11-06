@@ -38,3 +38,22 @@ export const login = async (loginDto: LoginDto): Promise<{ user: IUser; token: s
     const token = generateToken(user);
     return { user, token };
 };
+
+export const getAllUsers = async (): Promise<IUser[]> => {
+    return User.find({});
+};
+
+export const updateUser = async (userId: string, updateData: Partial<IUser>): Promise<IUser> => {
+    const user = await User.findByIdAndUpdate(userId, updateData, { new: true });
+    if (!user) {
+        throw new AppError(404, 'User not found');
+    }
+    return user;
+};
+
+export const deleteUser = async (userId: string): Promise<void> => {
+    const user = await User.findByIdAndDelete(userId);
+    if (!user) {
+        throw new AppError(404, 'User not found');
+    }
+};
