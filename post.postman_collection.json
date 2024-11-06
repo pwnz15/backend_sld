@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "Invoice Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": {
+            "clientId": "{{clientId}}",
+            "companyId": "{{companyId}}",
+            "driverId": "{{driverId}}",
+            "items": [
+              {
+                "articleId": "{{articleId}}",
+                "quantity": 2,
+                "unitPrice": 100,
+                "discount": 10,
+                "tva": 20
+              }
+            ],
+            "dueDate": "2024-12-31",
+            "notes": "Sample invoice",
+            "termsAndConditions": "Payment due within 30 days"
+          }
+        },
+        "url": "{{baseUrl}}/api/invoices"
+      }
+    },
+    {
+      "name": "Get All Invoices",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/invoices?page=1&limit=10&status=PENDING&startDate=2024-01-01&endDate=2024-12-31",
+          "query": [
+            {"key": "page", "value": "1"},
+            {"key": "limit", "value": "10"},
+            {"key": "status", "value": "PENDING"},
+            {"key": "startDate", "value": "2024-01-01"},
+            {"key": "endDate", "value": "2024-12-31"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Invoice by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/invoices/{{invoiceId}}"
+      }
+    },
+    {
+      "name": "Update Invoice",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization", 
+            "value": "Bearer {{authToken}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": {
+            "status": "PAID",
+            "paymentStatus": "PAID",
+            "paymentMethod": "CASH",
+            "paymentReference": "REF123",
+            "paymentDate": "2024-11-05",
+            "notes": "Payment received"
+          }
+        },
+        "url": "{{baseUrl}}/api/invoices/{{invoiceId}}"
+      }
+    },
+    {
+      "name": "Delete Invoice",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/invoices/{{invoiceId}}"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
