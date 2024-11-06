@@ -1,6 +1,5 @@
 // src/config/db.ts
 import mongoose from 'mongoose';
-<<<<<<< HEAD
 import { EventEmitter } from 'events';
 
 export const dbEmitter = new EventEmitter();
@@ -81,26 +80,3 @@ export class DatabaseManager {
 }
 
 export default DatabaseManager.getInstance();
-=======
-
-export const verifyDatabase = async (): Promise<boolean> => {
-  try {
-    return mongoose.connection.readyState === 1;
-  } catch (error) {
-    console.error('Database verification failed:', error);
-    return false;
-  }
-};
-
-const connectDB = async (): Promise<void> => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/sld');
-    console.log('MongoDB connected successfully');
-  } catch (error) {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
-  }
-};
-
-export default connectDB;
->>>>>>> 9a8f109c8bdb237a3b13b305ec1faa8024e34624

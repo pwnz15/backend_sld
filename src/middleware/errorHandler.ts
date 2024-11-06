@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-<<<<<<< HEAD
 import { ValidationError } from 'joi';
 import { MongoError } from 'mongodb';
 
@@ -12,13 +11,6 @@ export class AppError extends Error {
     ) {
         super(message);
         this.name = 'AppError';
-=======
-
-export class AppError extends Error {
-    constructor(public statusCode: number, message: string) {
-        super(message);
-        this.statusCode = statusCode;
->>>>>>> 9a8f109c8bdb237a3b13b305ec1faa8024e34624
         Error.captureStackTrace(this, this.constructor);
     }
 }
@@ -29,7 +21,6 @@ export const errorHandler = (
     res: Response,
     next: NextFunction
 ): void => {
-<<<<<<< HEAD
     console.error('Error:', {
         name: err.name,
         message: err.message,
@@ -73,11 +64,5 @@ export const errorHandler = (
         status: 'error',
         code: 'INTERNAL_SERVER_ERROR',
         message: 'An unexpected error occurred'
-=======
-    console.error(err.stack);
-    res.status(500).json({
-        status: 'error',
-        message: err.message || 'Internal server error'
->>>>>>> 9a8f109c8bdb237a3b13b305ec1faa8024e34624
     });
 };
